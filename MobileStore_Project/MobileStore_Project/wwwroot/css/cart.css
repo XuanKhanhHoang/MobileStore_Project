@@ -1,0 +1,31 @@
+﻿.cart-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This is to make the container take the full viewport height */
+}
+
+.cart-content {
+    text-align: center;
+}
+
+.cart-icon i {
+    font-size: 50px;
+}
+
+.non-underscore {
+    text-decoration: none;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+.larger-text {
+    font-size: 24px;
+    color: #009981;
+}
+
+.cart-text {
+    font-size: 20px;
+}
