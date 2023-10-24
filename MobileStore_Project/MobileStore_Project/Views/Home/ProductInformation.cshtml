@@ -1,0 +1,416 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Scripts {
+<script>
+    const showMore = (e) => {
+        let text = "Thu gon";
+        if ($("#showMoreButton").text().trim() != text) {
+            $("#desProduct").removeClass("maxHeight890px");
+            $("#showMoreButton").text(text);
+            return;
+        }
+        $("#desProduct").addClass("maxHeight890px");
+        $("#showMoreButton").text("Xem them");
+    };
+</script>
+}
+<main class="container-xl bg-lightDark d-flex flex-column">
+    <h3 class="fs-5 p-2">
+        Điện thoại di động iPhone 15 Pro Max (256GB) - Chính hãng VN/A
+    </h3>
+    <div class="main_content d-flex flex-column mt-3 flex-lg-row">
+        <!-- Carousel -->
+        <div id="demo"
+             class="carousel slide col-12 heightFitContent col-lg-4"
+             data-bs-ride="carousel">
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button"
+                        data-bs-target="#demo"
+                        data-bs-slide-to="0"
+                        class="active"></button>
+                <button type="button"
+                        data-bs-target="#demo"
+                        data-bs-slide-to="1"></button>
+                <button type="button"
+                        data-bs-target="#demo"
+                        data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100" />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100" />
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100" />
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#demo"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#demo"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <div class="col-12 col-lg-5 p-1 pb-0 d-flex flex-column">
+            <span>
+                <span class="text-danger fs-5 fw-bolder">33,850,000 ₫ </span>|
+                <span class="fst-italic">Giá đã bao gồm VAT</span>
+            </span>
+            <p class="fst-italic">Đã sẵn hàng.</p>
+            <button class="col-12 bg-success rounded border-0 p-2 fs-13px text-light">
+                <i class="fa-solid fa-truck me-2"></i> MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC
+            </button>
+            <span class="fs-13px fw-bolder p-1">Lựa chọn phiên bản</span>
+            <div class="d-flex flex-row fs-13px col-11 col-md-12">
+                <div class="col-md-3 col-4 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+                <div class="col-md-3 col-4 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+                <div class="col-md-3 col-4 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+            </div>
+            <span class="fw-bolder fs-13px p-1">Lựa chọn màu và xem địa chỉ còn hàng</span>
+            <div class="d-flex flex-row fs-13px col-11 col-md-12">
+                <div class="col-4 col-md-3 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+                <div class="col-4 col-md-3 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+                <div class="col-4 col-md-3 p-2 border rounded bg-light me-2 borderOrangeHover">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="flexRadioDefault"
+                           id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        256GB
+                    </label>
+                    <p class="fw-bolder textNoWrap text-danger">33,850,000 ₫</p>
+                </div>
+            </div>
+            <div class="col-12 p-2 border rounded text-center d-flex flex-column justify-content-evenly mt-3 bg-light">
+                <p class="m-0 fs-13px">
+                    Trợ giá lên tới <span class="fw-bolder"> 2,000,000 ₫ </span> khi
+                    thu cũ đổi mới
+                </p>
+                <p class="m-0 fs-5 text-danger fw-bolder">37,750,000 ₫</p>
+            </div>
+            <span class="fs-13px fw-bolder textColor_198754 py-2">KHUYẾN MÃI</span>
+            <div class="fs-13px">
+                <div class="my-2">
+                    <div class="bg-f7941e d-inline-block rounded fs-11px text-light p_2-4 shadow">
+                        KM 1
+                    </div>
+                    <p class="m-1">Đã sẵn hàng màu Titan Xanh.</p>
+                </div>
+                <div class="my-2">
+                    <div class="bg-f7941e d-inline-block rounded fs-11px text-light p_2-4 shadow">
+                        KM 1
+                    </div>
+                    <p class="m-1">Đã sẵn hàng màu Titan Xanh.</p>
+                </div>
+                <div class="my-2">
+                    <div class="bg-f7941e d-inline-block rounded fs-11px text-light p_2-4 shadow">
+                        KM 1
+                    </div>
+                    <p class="m-1">Đã sẵn hàng màu Titan Xanh.</p>
+                </div>
+            </div>
+            <div class="d-flex">
+                <button class="rounded bg-linear-bf1e2d border-0 text-light me-2 px-2 shadow"
+                        style="width: 40% !important">
+                    <span class="fs-13px fw-bolder text-uppercase">Mua Ngay</span>
+                    <p class="m-0 fs-11px">Giao tan nha</p>
+                    <p class="m-0 fs-11px" style="padding-bottom: 2px">
+                        Hoac nhan tai cua hang
+                    </p>
+                </button>
+                <button class="rounded bg-linear-bf1e2d border-0 text-light me-2 shadow"
+                        style="
+                background: transparent
+                  linear-gradient(180deg, #00917a 0%, #00483d 100%) 0% 0%
+                  no-repeat padding-box;
+                width: 40% !important;
+              ">
+                    <span class="fs-13px fw-bolder text-uppercase">Tra gop</span>
+                    <p class="m-0 fs-11px">Giao tan nha</p>
+                    <p class="m-0 fs-11px" style="padding-bottom: 2px">
+                        Hoặc 0% qua thẻ tín dụng
+                    </p>
+                </button>
+                <button class="col-3 rounded bg-linear-bf1e2d border-0 text-light ms-auto shadow"
+                        style="
+                background: transparent
+                  linear-gradient(180deg, #ff990e 0%, #ff6801 100%) 0% 0%
+                  no-repeat padding-box;
+              ">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p class="m-0 fs-11px">Them gio hang</p>
+                </button>
+            </div>
+            <div class="bg-light rounded-1 mt-3 p-2 pb-0">
+                <div class="">
+                    <span class="fs-13px fw-bolder">ƯU ĐÃI THANH TOÁN</span>
+                    <ul>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ khi mở thẻ tín
+                                dụng TPBank EVO thành công.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ khi mở thẻ tín
+                                dụng TPBank EVO thành công.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ khi mở thẻ tín
+                                dụng TPBank EVO thành công.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="">
+                    <span class="fs-13px fw-bolder">ƯU ĐÃI ĐI KÈM</span>
+                    <ul>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ khi mở thẻ tín
+                                dụng TPBank EVO thành công.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="fs-11px mb-1">
+                                TPBank EVO - Ưu đãi giảm 40% tối đa 400.000đ khi mở thẻ tín
+                                dụng TPBank EVO thành công.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 rounded-3 bg-light p-2 border-2">
+            <div class="">
+                <span class="text-left text-lg-center col-12 d-block fontWeight600">THÔNG TIN BẢO HÀNH</span>
+                <ul>
+                    <li>
+                        <p class="fs-11px fontWeight600">
+                            Bảo hành 12 tháng chính hãng tại các TTBH uỷ quyền của Apple
+                            tại Việt Nam.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="fs-11px fontWeight600">
+                            Bảo hành 12 tháng chính hãng tại các TTBH uỷ quyền của Apple
+                            tại Việt Nam.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="">
+                <span class="fontWeight600 text-left text-lg-center d-block">
+                    ĐỊA CHỈ CÒN HÀNG
+                </span>
+                <div class="rounded border">
+                    <ul>
+                        <li>
+                            <div class="fs-11px">
+                                <p class="mb-0">382 Nguyễn Văn Cừ, Hà Nội</p>
+                                <p class="mb-0">
+                                    <span class="textColor_198754">0915.963.222</span>
+                                    -
+                                    <a> Chỉ đường</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fs-11px">
+                                <p class="mb-0">382 Nguyễn Văn Cừ, Hà Nội</p>
+                                <p class="mb-0">
+                                    <span class="textColor_198754">0915.963.222</span>
+                                    -
+                                    <a> Chỉ đường</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fs-11px">
+                                <p class="mb-0">382 Nguyễn Văn Cừ, Hà Nội</p>
+                                <p class="mb-0">
+                                    <span class="textColor_198754">0915.963.222</span>
+                                    -
+                                    <a> Chỉ đường</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="des_Product d-flex p-3 rounded-3 justify-content-between w">
+        <div class="row gx-3 flex-column flex-lg-row">
+            <div class="col-12 col-lg-8 rounded-2 d-flex flex-column bg-light p-2 mb-2">
+                <div class="maxHeight890px overflow-hidden" id="desProduct">
+                    <p class="fs-13px">
+                        Tất cả iPhone chính hãng VN/A được phân phối tại Hoàng Hà Mobile
+                        đều được nhập trực tiếp từ Công ty TNHH Apple Việt Nam. Hoàng Hà
+                        Mobile là nhà bán lẻ ủy quyền chính thức của Apple tại Việt Nam.
+                    </p>
+                    <h5>iPhone 15 Pro Max màu sắc sang chảnh, iFans cháy túi</h5>
+                    <p class="fs-13px">
+                        Đối với iPhone 15 Pro Max, Apple đã quyết định loại bỏ lớp khung
+                        thép không gỉ truyền thống và chuyển sang sử dụng titan giúp
+                        thiết bị nhẹ hơn khoảng 10% so với các phiên bản trước đó. Ngoài
+                        đem đến trải nghiệm cầm nắm thuận tiện hơn, chất liệu titan có
+                        tính chất chống ăn mòn và chịu được va đập tốt sẽ mang lại độ
+                        bền cao hơn cho iPhone 15 Pro Max.
+                    </p>
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100 minHeight360 minWidth285" />
+                    <h5>iPhone 15 Pro Max màu sắc sang chảnh, iFans cháy túi</h5>
+                    <p class="fs-13px">
+                        Đối với iPhone 15 Pro Max, Apple đã quyết định loại bỏ lớp khung
+                        thép không gỉ truyền thống và chuyển sang sử dụng titan giúp
+                        thiết bị nhẹ hơn khoảng 10% so với các phiên bản trước đó. Ngoài
+                        đem đến trải nghiệm cầm nắm thuận tiện hơn, chất liệu titan có
+                        tính chất chống ăn mòn và chịu được va đập tốt sẽ mang lại độ
+                        bền cao hơn cho iPhone 15 Pro Max.
+                    </p>
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100 minHeight360 minWidth285" />
+                </div>
+                <button class="d-block bg-light text-Primary border-0 mx-auto cursor-pointer mt-1 fw-bolder text-uppercase"
+                        style="color: #198754"
+                        id="showMoreButton"
+                        onclick="showMore(event)">
+                    Xem Them
+                </button>
+            </div>
+            <div class="col-12 col-lg-4 px-0 px-md-1">
+                <div class="col-12 mx-auto rounded-2 bg-light d-flex flex-column">
+                    <span class="p-1 mt-1" style="font-weight: 600">
+                        Thông số kỹ thuật iPhone 15 Pro Max (512GB) - Chính hãng
+                        VN/A
+                    </span>
+                    <img src="/img/iphone-15-pro-max-blue-titanium-pure-back-iphone-15-pro-max-blue-titanium-pure-front-2up-screen-usen.png"
+                         alt="Los Angeles"
+                         class="d-block w-100 minHeight360 minWidth285" />
+                    <div class="border rounded">
+                        <p class="fw-bolder m-0 p-2 fs-5 text-center"
+                           style="color: #198754">
+                            Cau hinh chi tiet
+                        </p>
+                        <ul>
+                            <li>
+                                <p class="fs-13px">
+                                    <span class="fw-bolder">Công nghệ màn hình</span>:
+                                    <span>
+                                        Màn hình Super Retina XDR, Tấm nền OLED, Dynamic Island,
+                                        Công nghệ ProMotion với tốc độ làm mới thích ứng lên đến
+                                        120Hz, Màn hình Luôn Bật, Màn hình HDR, Tỷ lệ tương phản
+                                        2.000.000:1 (tiêu chuẩn), Màn hình True Tone, Màn hình
+                                        có dải màu rộng (P3), Haptic Touch
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="fs-13px">
+                                    <span class="fw-bolder">Công nghệ màn hình</span>:
+                                    <span>
+                                        Màn hình Super Retina XDR, Tấm nền OLED, Dynamic Island,
+                                        Công nghệ ProMotion với tốc độ làm mới thích ứng lên đến
+                                        120Hz, Màn hình Luôn Bật, Màn hình HDR, Tỷ lệ tương phản
+                                        2.000.000:1 (tiêu chuẩn), Màn hình True Tone, Màn hình
+                                        có dải màu rộng (P3), Haptic Touch
+                                    </span>
+                                </p>
+                            </li>
+                            <li>
+                                <p class="fs-13px">
+                                    <span class="fw-bolder">Công nghệ màn hình</span>:
+                                    <span>
+                                        Màn hình Super Retina XDR, Tấm nền OLED, Dynamic Island,
+                                        Công nghệ ProMotion với tốc độ làm mới thích ứng lên đến
+                                        120Hz, Màn hình Luôn Bật, Màn hình HDR, Tỷ lệ tương phản
+                                        2.000.000:1 (tiêu chuẩn), Màn hình True Tone, Màn hình
+                                        có dải màu rộng (P3), Haptic Touch
+                                    </span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

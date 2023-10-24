@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project_BE_Web</title>
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+   
+    <header class="py-3 position-sticky mb-4 shadow-sm">
+        <div class="container d-flex align-items-center">
+            <div class="sidebar-btn d-none">
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <a href="/"
+               class="header__brand text-decoration-none text-body fs-2 fw-bold"
+               style="letter-spacing: 2px;">K-Mobile</a>
+
+            <div class="header__search mx-3 position-relative flex-grow-1">
+                <input class="border-0 fs-6 fw-bold" type="text" placeholder="Hôm nay bạn cần gì??" />
+                <a class="search-icon position-absolute text-light fs-5">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </div>
+            <div class="order__tools d-flex justify-content-center align-items-center">
+                <div class="header__order d-flex align-items-center">
+                    <i class="fa-solid fa-truck fs-5 me-2"></i>
+                    <span class="text-center">Kiểm tra đơn hàng</span>
+                </div>
+                <div class="header__cart text-center position-relative">
+                    <i class="fa-solid fa-cart-shopping fs-3 ms-3" style="cursor: pointer;"></i>
+                    <div class="quantity px-1 position-absolute rounded fw-bold">0</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout position-fixed">
+        <div class="sidebar position-relative">
+            <i class="fa-solid fa-xmark close-sidebar-btn position-absolute fs-1"></i>
+            <div class="user d-flex align-items-center">
+                <div class="user__avatar p-4 rounded">
+                    <i class="fa-solid fa-user fs-2"></i>
+                </div>
+                <div class="user__info ms-4">
+                    <h2>Đăng nhập</h2>
+                    <p class="fs-6">Đăng nhập để nhận nhiều ưu đãi</p>
+                </div>
+            </div>
+            <ul class="menu list-unstyled p-0">
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Samsung</a>
+                </li>
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Iphone</a>
+                </li>
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Realme</a>
+                </li>
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Oppo</a>
+                </li>
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Asus</a>
+                </li>
+                <li class="menu-item">
+                    <a class="nav-link" href="#">Xiaomi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <ul class="list d-flex justify-content-center list-unstyled">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Iphone</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Samsung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Xiaomi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Asus</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Realme</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Oppo</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="min-vh-100">
+        @RenderBody()
+    </div>
+    <a href="#"
+       class="scroll-btn position-fixed rounded d-flex text-decoration-none">
+        <i class="fa-solid fa-caret-up m-auto fs-4 text-light"></i>
+    </a>
+
+    <footer class="text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="support text-center">
+                        <div class="footer__heading">Hỗ trợ - dịch vụ</div>
+                        <ul class="list-unstyled">
+                            <li>Mua hàng trả góp</li>
+                            <li>Hướng dẫn đặt hàng và thanh toán</li>
+                            <li>Tra cứu đơn hàng</li>
+                            <li>Chính sách bảo hành</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact text-center">
+                        <div class="footer__heading">Thông tin liên hệ</div>
+                        <ul class="list-unstyled">
+                            <li>Bán hàng online</li>
+                            <li>Chăm sóc khách hàng</li>
+                            <li>Dịch cụ sửa chữa</li>
+                            <li>Tra cứu bảo hành</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="members text-center">
+                        <div class="footer__heading">Thành viên nhóm</div>
+                        <ul class="list-unstyled">
+                            <li>Phạm Văn Công</li>
+                            <li>Nguyễn Sĩ Hà</li>
+                            <li>Bùi Quang Huy</li>
+                            <li>Hoàng Xuân Khanh</li>
+                            <li>Nguyễn Văn Nghĩa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="./js/layout.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("ScriptDropDown", required: false)
+</body>
+</html>
