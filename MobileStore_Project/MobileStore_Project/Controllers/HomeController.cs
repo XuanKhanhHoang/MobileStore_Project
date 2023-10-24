@@ -36,6 +36,12 @@ namespace Project_BE_Web.Controllers
         {
             return View();
         }
+        [Route("/SearchOrder")]
+        public IActionResult SearchOrder()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

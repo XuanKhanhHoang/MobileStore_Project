@@ -29,3 +29,67 @@
 .cart-text {
     font-size: 20px;
 }
+
+.fs-14px {
+    font-size: 14px;
+}
+
+.bill.checked {
+    background-color: #dbcece;
+}
+
+.bill__check.checked {
+    background-color: rgb(228, 119, 24);
+    border: none !important;
+    transition: 0.1s;
+}
+
+.bill__desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: wrap;
+    width: 200px;
+}
+
+.bill__product {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.bill__quantity button {
+    padding: 4px 12px;
+    border-color: #ccc;
+    user-select: none;
+}
+
+.hover:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.cart-empty {
+    display: none;
+}
+.cart-not-empty {
+    display: none;
+}
+
+
+@media screen and (max-width: 740px) {
+    .bill__product {
+        flex-flow: column;
+        align-items: flex-start !important;
+    }
+
+    .bill__product .bill__price {
+        margin-left: 0 !important;
+    }
+
+    .bill__product .portfolio {
+        display: flex;
+    }
+}

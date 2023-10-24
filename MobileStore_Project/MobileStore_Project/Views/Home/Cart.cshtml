@@ -14,7 +14,7 @@
             </div>
 
 
-            <div class="cart-layout">
+            <div class="cart-layout cart-not-empty">
                 <div class="cart-content">
                     <div class="no-items">
                         <div class="cart-icon">
@@ -29,6 +29,106 @@
                 </div>
             </div>
         </div>
+
+        <div class="row bills">
+            <div class="bill col-12 my-3 py-2 border border-dark rounded d-flex align-items-center">
+                <div class="bill__check rounded border border-dark d-inline me-2 d-flex" style="height: 20px;width: 20px;">
+                    <i class="fa-solid fa-check m-auto text-light"></i>
+                </div>
+                <div class="bill__details d-flex align-items-center flex-grow-1">
+                    <a href="" class="bill__img text-decoration-none" style="width: 90px;height: 90px;">
+                        <img class="object-fit-fill mw-100 mh-100" src="https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2022/08/10/z-flip-4.jpg" alt="">
+                    </a>
+
+                    <div class="bill__product">
+                        <a href="" class=" bill__desc text-decoration-none text-truncate fw-bold fs-6 text-dark">
+                            Samsung Galaxy Z Fold4 - 512GB -Chính hãng
+                        </a>
+                        <div class="portfolio" style="opacity: 0.6;">
+                            <p class="fs-6 fw-bold mb-1">Phân loại hàng :</p>
+                            <p class="fs-6 fw-bold mb-0">Gold, 256G</p>
+                        </div>
+                        <div class="bill__price ms-5">
+                            <div>
+                                <span class="fs-14px text-decoration-line-through" style="opacity: 0.7;">₫2.590.000</span>
+                                <span class="fs-6 ms-2 fw-bold">₫1.890.000</span>
+                            </div>
+                            <div>
+                                <span class="fs-14px text-danger fw-bold">Giảm giá 5%</span>
+                            </div>
+                        </div>
+                        <div class="bill__quantity d-flex align-items-center justify-content-center">
+                            <button class="decrease" onclick="changeQuantity(event, 1)">-</button>
+                            <button class="value">1</button>
+                            <button class="increase" onclick="changeQuantity(event, 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="bill__delete fw-bold hover">Xóa</div>
+                </div>
+            </div>
+            <div class="bill col-12 my-3 py-2 border border-dark rounded d-flex align-items-center">
+                <div class="bill__check rounded border border-dark d-inline me-2 d-flex" style="height: 20px;width: 20px;">
+                    <i class="fa-solid fa-check m-auto text-light"></i>
+                </div>
+                <div class="bill__details d-flex align-items-center flex-grow-1">
+                    <a href="" class="bill__img text-decoration-none" style="width: 90px;height: 90px;">
+                        <img class="object-fit-fill mw-100 mh-100" src="https://cdn.hoanghamobile.com/i/productlist/ts/Uploads/2022/08/10/z-flip-4.jpg" alt="">
+                    </a>
+
+                    <div class="bill__product">
+                        <a href="" class=" bill__desc text-decoration-none text-truncate fw-bold fs-6 text-dark">
+                            Samsung Galaxy Z Fold4 - 512GB -Chính hãng
+                        </a>
+                        <div class="portfolio" style="opacity: 0.6;">
+                            <p class="fs-6 fw-bold mb-1">Phân loại hàng :</p>
+                            <p class="fs-6 fw-bold mb-0">Gold, 256G</p>
+                        </div>
+                        <div class="bill__price ms-5">
+                            <div>
+                                <span class="fs-14px text-decoration-line-through" style="opacity: 0.7;">₫2.590.000</span>
+                                <span class="fs-6 ms-2 fw-bold">₫1.890.000</span>
+                            </div>
+                            <div>
+                                <span class="fs-14px text-danger fw-bold">Giảm giá 5%</span>
+                            </div>
+                        </div>
+                        <div class="bill__quantity d-flex align-items-center justify-content-center">
+                            <button class="decrease" onclick="changeQuantity(event, 2)">-</button>
+                            <button class="value">1</button>
+                            <button class="increase" onclick="changeQuantity(event, 2)">+</button>
+                        </div>
+                    </div>
+                    <div class="bill__delete fw-bold hover">Xóa</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+@section Scripts {
+    <script>
+        function changeQuantity(event, id) {
+            let bill = event.target.closest('.bill');
+            let billQuantityElement = bill.querySelector(' .bill__quantity .value')
+            let value = billQuantityElement.innerText - '0';
+            if (event.target.classList.contains('increase')) {
+                billQuantityElement.innerText = ++value;
+            }
+            else {
+                billQuantityElement.innerText = --value <= 2 ? 1 : value;
+            }
+        }
+        document.querySelectorAll('.bill__check').forEach((button) => {
+            button.addEventListener('click', (e) => {
+                button.classList.toggle('checked');
+                button.closest('.bill').classList.toggle('checked');
+            })
+        })
+        document.querySelectorAll('.bill__delete').forEach((button) => {
+            button.addEventListener('click', () => {
+                document.querySelector('.bills').removeChild(button.closest('.bill'));
+            })
+        })
+    </script>
+}
 
