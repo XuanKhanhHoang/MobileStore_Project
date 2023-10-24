@@ -124,7 +124,7 @@
             </li>
 
             <li class="sort-product_item">
-                <span>Khuyến mại</span>
+                <span class="product-dropdown-discount">Khuyến mại</span>
             </li>
 
             <li class="sort-product_item">
@@ -160,7 +160,7 @@
     <!-- for mobile -->
     <ul class="sort-product-mb text-center p-0 list-unstyled allow-scroll">
 
-        <li class="sort-product-mb_item btn btn-success" onclick="dropdown();">
+        <li class="sort-product-mb_item btn btn-success" style="height: 36px;" onclick="dropdown();">
             <span>
                 Thương hiệu
                 <i class="fa-solid fa-caret-down"></i>
@@ -168,19 +168,19 @@
 
         </li>
         <li class="sort-product-mb_item">
-            <a href="" class="sort-product-mb_btn btn btn-success">Mới nhất</a>
+            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Mới nhất</button>
         </li>
 
         <li class="sort-product-mb_item">
-            <a href="" class="sort-product-mb_btn btn btn-success ">Khuyến mại</a>
+            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-discount">Khuyến mại</button>
         </li>
 
         <li class="sort-product-mb_item">
-            <a href="" class="sort-product-mb_btn btn btn-success ">Giá thấp</a>
+            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Giá thấp</button>
         </li>
 
         <li class="sort-product-mb_item">
-            <a href="" class="sort-product-mb_btn btn btn-success ">Giá cao</a>
+            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-discount">Giá cao</button>
         </li>
 
 
@@ -188,34 +188,34 @@
     <div class="product-dropdown-mb product-dropdown">
         <ul class="product-dropdown_list list-unstyled">
             <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Apple</button>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Apple</button>
             </li>
             <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Sam Sung</button>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Sam Sung</button>
             </li>
             <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Oppo</button>
-            </li>
-        </ul>
-
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Nokia</button>
-            </li>
-            <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Vivo</button>
-            </li>
-            <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Xiaomi</button>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Oppo</button>
             </li>
         </ul>
 
         <ul class="product-dropdown_list list-unstyled">
             <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Realmi</button>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Nokia</button>
             </li>
             <li>
-                <button class="product-dropdown_btn bg-transparent border-0">Huawei</button>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Vivo</button>
+            </li>
+            <li>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Xiaomi</button>
+            </li>
+        </ul>
+
+        <ul class="product-dropdown_list list-unstyled">
+            <li>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Realmi</button>
+            </li>
+            <li>
+                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Huawei</button>
             </li>
         </ul>
     </div>
@@ -465,6 +465,18 @@
             $.ajax({
                 url: "/",
                 data: { price: price },
+                success: function (response) {
+                    //$("#list-product").html(response);
+                }
+            })
+        })
+
+        $(".product-dropdown-discount").click(function () {
+            var discount = $(this).text();
+            console.log(discount)
+            $.ajax({
+                url: "/",
+                data: { discount: discount },
                 success: function (response) {
                     //$("#list-product").html(response);
                 }
