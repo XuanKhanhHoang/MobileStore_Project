@@ -38,6 +38,9 @@
 .hidden {
   display: none;
 }
+.show {
+    display: block !important;
+}
 
 .icon_password {
   right: 0;
@@ -45,3 +48,4 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
+
