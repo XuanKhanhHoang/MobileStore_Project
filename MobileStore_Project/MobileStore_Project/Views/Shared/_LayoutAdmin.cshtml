@@ -10,13 +10,154 @@
     <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="./css/admin/layout_admin.css" asp-append-version="true" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div class="wrapper">
+        <!-- sidebar -->
+        <aside id="sidebar" class="position-relative">
+            <div class="h-100 d-flex flex-column">
+                <div class="sidebar-logo text-center">
+                    <a href=""><i class="fa-solid fa-layer-group fs-3 pe-2 text-white"></i></a>
+                    <a href="#" class="fs-5">Trang quản trị</a>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <img class="user_admin-img ms-4" src="./img/Admin/useradmin.png" alt="">
+                    </div>
+                    <div class="col-8">
+                        <p class="text-white fs-5">Xin chào</p>
+                        <p class="text-white fs-5 fw-bold">Admin</p>
+                    </div>
+                </div>
+                <!-- sidebar navigation -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header fs-5">
+                        Danh mục quản lý
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link fs-5">
+                            <i class="fa-solid fa-house pe-2"></i>
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link fs-5 collapsed" data-bs-toggle="collapse" data-bs-target="#products" aria-expanded="false" aria-controls="products">
+                            <i class="fa-brands fa-dropbox pe-2"></i>
+                            Sản phẩm
+                        </a>
+                        <ul id="products" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Danh sách</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Thêm mới</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Xoá</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed fs-5" data-bs-toggle="collapse" data-bs-target="#accounts" aria-expanded="false" aria-controls="accounts">
+                            <i class="fa-solid fa-user pe-2"></i>
+                            Tài khoản
+                        </a>
+                        <ul id="accounts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Danh sách</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Thêm mới</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Xoá</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed fs-5" data-bs-toggle="collapse" data-bs-target="#posts" aria-expanded="false" aria-controls="posts">
+                            <i class="fa-solid fa-newspaper pe-2"></i>
+                            Bài viết
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Danh sách</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Thêm mới</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Xoá</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed fs-5" data-bs-toggle="collapse" data-bs-target="#image" aria-expanded="false" aria-controls="image">
+                            <i class="fa-solid fa-image pe-2"></i>
+                            Hình ảnh
+                        </a>
+                        <ul id="image" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5 justify-content">Danh sách</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Thêm mới</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link fs-5 ms-5">Xoá</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center footer-sidebar position-absolute">
+                        <a href="#" class="sidebar-link fs-4 text-center flex-grow-1">
+                            <i class="fa-solid fa-gear"></i>
+                        </a>
+                        <a href="#" class="sidebar-link fs-4 text-center flex-grow-1">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                   
+                </div>
+            </div>
+        </aside>
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <!-- Button for sidebar toggle -->
+                <button class="btn fs-3" type="button" data-bs-toggle="collapse">
+                    <i class="fa-solid fa-bars text-white fs-1"></i>
+                </button>
+
+                <div class="header-admin ms-auto d-flex align-items-center justify-content-center">
+                    <p class="header-nav--text fs-5 mb-0 me-4 fw-500 text-white">Quản lí nghiệp vụ</p>
+                    <i class="fa-regular fa-envelope fs-3 me-3 header-email text-white"></i>
+                    <a href="#"><img src="./img/Admin/useradmin.png" class="header-img--admin fs-2 ms-3" alt=""></a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn border-0 dropdown-toggle fs-5 fw-500 text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                            admin
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><button class="dropdown-item" type="button">Thông tin</button></li>
+                            <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <main class="content px-3 py-2">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        @RenderBody()
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
+    <script src="./js/layout_admin.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("ScriptDropDown", required: false)
 </body>
