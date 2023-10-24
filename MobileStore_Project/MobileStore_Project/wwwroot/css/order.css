@@ -1,0 +1,33 @@
+﻿.fs-18px {
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.you-know .ctn {
+    min-width: 500px;
+}
+
+.ctn .text {
+    border-radius: 20px;
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    left: -50px;
+    bottom: -50%;
+}
+
+.bill__img {
+    width: 120px;
+    height: 120px;
+}
