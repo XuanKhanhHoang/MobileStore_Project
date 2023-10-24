@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MobileStore_Project.Models;
+using Project_BE_Web.Models;
 using System.Diagnostics;
 
-namespace MobileStore_Project.Controllers
+namespace Project_BE_Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -22,7 +22,20 @@ namespace MobileStore_Project.Controllers
         {
             return View();
         }
-
+        [Route("/LoginRegister")]
+        public IActionResult LoginRegister()
+        {
+            return View();
+        }
+        [Route("/Cart")]
+        public IActionResult Cart() {
+            return View();
+        }
+        [Route("/ProductInformation")]
+        public IActionResult ProductInformation()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
