@@ -1,4 +1,11 @@
-﻿<head>
+﻿@{
+    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 0;
+    int currPage = ViewBag.CurrPage != null ? (int)ViewBag.CurrPage : 0;
+
+    int startPage = 1;
+    int endPage = pageCount;
+}
+<head>
     <link rel="stylesheet" href="./css/home.css" />
 </head>
 <div class="container">
@@ -15,14 +22,6 @@
                     <img src="./img/slider3.png" class="d-block w-100" alt="...">
                 </div>
             </div>
-            @* <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-            </button> *@
         </div>
     </div>
 </div>
@@ -220,218 +219,30 @@
         </ul>
     </div>
     <!--  -->
-
     <div class="products">
         <h2 class="products_title fw-bold">Danh sách sản phẩm</h2>
-        <div id="list-product" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2 g-md-3 g-lg-2 g-xl-2">
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15_pink.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15_plus.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/redminote12-0.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/redminote12-0.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15_pink.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="#" class="product">
-                    <div class="product_img" style="background-image: url(./img/iphone_15.png);"></div>
-                    <div class="product-info">
-                        <h6 class="product-info_name">iPhone 15 Pro Max (512GB) - Chính hãng VN/A</h6>
-                        <span class="product-info_price">39,750,000 ₫</span>
-                        <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
-                    </div>
-                    <div class="note">
-                        <span class="bag">KM</span>
-                        <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
-                        <span>VÀ 11 KM KHÁC</span>
-                    </div>
-                </a>
-            </div>
-
+        <div id="list-product" class="row gy-3">
+            <partial name="ListProduct" />
         </div>
     </div>
+
 
 </div>
 <div class="page">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-            <li class="page-item">
+            <li class="page-item previous">
                 <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item pagniation-item">
+                    <a class="page-link" href="">@i</a>
+                </li>
+            }
+            <li class="page-item next">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
@@ -493,6 +304,37 @@
                     //$("#list-product").html(response);
                 }
             })
+        })
+
+        function getDataPage(page) {
+            $.ajax({
+                url: "/ListProduct",
+                data: { page },
+                success: function (result) {
+                    $('#list-product').html(result);
+                }
+            })
+        }
+
+        $(".pagniation-item .page-link").click(function (event) {
+            event.preventDefault();
+            var page = $(this).text();
+            getDataPage(page);
+        })
+
+        $(".page-item.previous .page-link").click(function (event) {
+            event.preventDefault();
+            var page = $(".page-item.previous + .pagniation-item .page-link").text();
+            getDataPage(--page);
+        })
+        $(".page-item.next .page-link").click(function (event) {
+            event.preventDefault();
+            var page = $(".page-item.next").prev().text();
+            getDataPage(++page);
+        })
+
+        $("document").ready(() => {
+            getDataPage(1);
         })
 
     </script>

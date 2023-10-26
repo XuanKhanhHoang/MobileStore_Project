@@ -20,6 +20,7 @@ namespace MobileStore_Project.Models
         public int? KhuyenMai { get; set; }
         public string? MauSac { get; set; }
         public string? AnhSp { get; set; }
+        public string? Gia { get; set; }
 
         public virtual Nsx MaNsxNavigation { get; set; } = null!;
         public virtual ICollection<DonHang> DonHangs { get; set; }
