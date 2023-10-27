@@ -1,6 +1,5 @@
 ﻿@{
-    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 0;
-    int currPage = ViewBag.CurrPage != null ? (int)ViewBag.CurrPage : 0;
+    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 1;
 
     int startPage = 1;
     int endPage = pageCount;
@@ -8,7 +7,7 @@
 <head>
     <link rel="stylesheet" href="./css/home.css" />
 </head>
-<div class="container">
+<div class="container @ViewBag.currPage">
     <div class="slide-show">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -306,10 +305,11 @@
             })
         })
 
-        function getDataPage(page) {
+        var currPage = 1;
+        function getDataPage(currPage) {
             $.ajax({
                 url: "/ListProduct",
-                data: { page },
+                data: { page: currPage },
                 success: function (result) {
                     $('#list-product').html(result);
                 }
@@ -318,19 +318,18 @@
 
         $(".pagniation-item .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(this).text();
-            getDataPage(page);
+            currPage = $(this).text();
+            getDataPage(currPage);
         })
-
         $(".page-item.previous .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(".page-item.previous + .pagniation-item .page-link").text();
-            getDataPage(--page);
+            currPage--;
+            getDataPage(currPage);
         })
         $(".page-item.next .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(".page-item.next").prev().text();
-            getDataPage(++page);
+            currPage++;
+            getDataPage(currPage);
         })
 
         $("document").ready(() => {
