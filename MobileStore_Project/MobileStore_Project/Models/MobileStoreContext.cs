@@ -163,6 +163,8 @@ namespace MobileStore_Project.Models
 
                 entity.Property(e => e.TenSp).HasColumnName("TenSP");
 
+                entity.Property(e => e.Gia).HasColumnName("Gia");
+
                 entity.HasOne(d => d.MaNsxNavigation)
                     .WithMany(p => p.SanPhams)
                     .HasForeignKey(d => d.MaNsx)

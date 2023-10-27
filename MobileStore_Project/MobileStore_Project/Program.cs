@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using MobileStore_Project.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MobileStoreContext>(options => options
+.UseSqlServer(builder.Configuration.GetConnectionString("MobileStoreContext")));
 
 var app = builder.Build();
 

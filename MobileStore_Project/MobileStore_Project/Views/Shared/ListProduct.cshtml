@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SanPham>
+
+@foreach (var product in Model)
+{
+    <div class="col-md-3 col-sm-4">
+        <a href="#" class="product">
+            <div class="product_img" style="background-image: url(@product.AnhSp); padding-top:100%"></div>
+            <div class="product-info">
+                <h6 class="product-info_name">@product.TenSp</h6>
+                <span class="product-info_price">39,750,000 ₫</span>
+                <label class="product-info_label">Giá lên đời từ: <span>37,750,000 ₫</span></label>
+            </div>
+            <div class="note">
+                <span class="bag">KM</span>
+                <label title="Đã sẵn hàng màu Titan Xanh.">Đã sẵn hàng màu Titan Xanh.</label>
+                <span>VÀ 11 KM KHÁC</span>
+            </div>
+        </a>
+    </div>
+}
+
