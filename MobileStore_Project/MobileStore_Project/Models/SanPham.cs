@@ -16,14 +16,14 @@ namespace MobileStore_Project.Models
         public int? SoLuong { get; set; }
         public string? TenSp { get; set; }
 
-        public decimal? Gia { get; set; }
+        public decimal? Giaban { get; set; }
         public string? CauHinh { get; set; }
         public string? MoTa { get; set; }
         public string? PhienBan { get; set; }
         public int? KhuyenMai { get; set; }
         public string? MauSac { get; set; }
         public string? AnhSp { get; set; }
-        public string? Gia { get; set; }
+        public decimal? GiaBan { get; set; }
 
         public virtual Nsx MaNsxNavigation { get; set; } = null!;
         public virtual ICollection<DonHang> DonHangs { get; set; }

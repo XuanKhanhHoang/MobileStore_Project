@@ -1,42 +1,13 @@
-<<<<<<< HEAD
-﻿
-=======
+
 ﻿@{
     int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 1;
 
     int startPage = 1;
     int endPage = pageCount;
 }
-<head>
-    <link rel="stylesheet" href="./css/home.css" />
-</head>
-<div class="container @ViewBag.currPage">
-    <div class="slide-show">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="./img/slider1.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="./img/slider2.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/slider3.png" class="d-block w-100" alt="...">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
+
 
 @model IEnumerable<SanPham>
-@{
-    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 1;
-    
-
-    int startPage = 1;
-    int endPage = pageCount;
-}
 
 <h1 class="mb-3 fs-6 fw-bold">
     <i class="fa-solid fa-house"></i>
@@ -126,50 +97,6 @@
         </li>
 
     </ul>
-<<<<<<< HEAD
-=======
-    <div class="product-dropdown-mb product-dropdown">
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Apple</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Sam Sung</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Oppo</button>
-            </li>
-        </ul>
-
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Nokia</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Vivo</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Xiaomi</button>
-            </li>
-        </ul>
-
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Realmi</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Huawei</button>
-            </li>
-        </ul>
-    </div>
-    <!--  -->
-    <div class="products">
-        <h2 class="products_title fw-bold">Danh sách sản phẩm</h2>
-        <div id="list-product" class="row gy-3">
-            <partial name="ListProduct" />
-        </div>
-    </div>
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
 
 
 </div>
@@ -218,36 +145,21 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item previous">
-<<<<<<< HEAD
-                <button class="page-link" aria-label="Previous">
-=======
-                <a class="page-link" href="#" aria-label="Previous">
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
+
+                <a href="#" class="page-link" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
-                </button>
+                </a>
             </li>
-<<<<<<< HEAD
-           
             @for (int i = startPage; i <= endPage; i++)
             {
                 <li class="page-item pagniation-item">
-                    <button class="page-link">@i</button>
-                </li>
-            }
-            <li class="page-item next">
-                <button class="page-link" aria-label="Next">
-=======
-            @for (int i = startPage; i <= endPage; i++)
-            {
-                <li class="page-item pagniation-item">
-                    <a class="page-link" href="">@i</a>
+                    <a class="page-link" href="#">@i</a>
                 </li>
             }
             <li class="page-item next">
                 <a class="page-link" href="#" aria-label="Next">
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
                     <span aria-hidden="true">&raquo;</span>
-                </button>
+                </a>
             </li>
         </ul>
     </nav>
@@ -298,7 +210,7 @@
         $(".product-dropdown-discount").click(function () {
             $.ajax({
                 url: "/filterByDiscount",
-                //data: { discount: discount },
+                
                 success: function (response) {
                     $("#list-product").html(response);
                 }
@@ -339,40 +251,6 @@
             })
         }
 
-        var currPage = 1;
-        function getDataPage(currPage) {
-            
-                $.ajax({
-                    url: "/ListProduct",
-                    data: { page: currPage },
-                    success: function (result) {
-                        $('#list-product').html(result);
-                    }
-                })
-    
-            
-        }
-
-        $(".pagniation-item .page-link").click(function (event) {
-            event.preventDefault();
-            currPage = $(this).text();
-            getDataPage(currPage);
-        })
-        $(".page-item.previous .page-link").click(function (event) {
-            event.preventDefault();
-            currPage--;
-            getDataPage(currPage);
-        })
-        $(".page-item.next .page-link").click(function (event) {
-            event.preventDefault();
-            currPage++;
-            getDataPage(currPage);
-            
-        })
-
-        $("document").ready(() => {
-            getDataPage(1);
-        })
 
         var currPage = 1;
         function getDataPage(currPage) {

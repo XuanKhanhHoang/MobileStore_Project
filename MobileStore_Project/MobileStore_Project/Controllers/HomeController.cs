@@ -8,54 +8,32 @@ namespace Project_BE_Web.Controllers
     public class HomeController : Controller
     {
         MobileStoreContext db;
-        private int PAGE_SIZE = 8;
-
+        private int PAGE_SIZE = 10;
+        
         private readonly ILogger<HomeController> _logger;
-<<<<<<< HEAD
 
         public HomeController(ILogger<HomeController> logger, MobileStoreContext db)
         {
             _logger = logger;
             this.db=db;
-    
-=======
-        private MobileStoreContext db;
-        List<SanPham> products;
-        private int PAGE_SIZE = 8;
-        public HomeController(ILogger<HomeController> logger, MobileStoreContext db)
-        {
-            _logger = logger;
-            this.db = db;
-            products = db.SanPhams.ToList();
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
+           
         }
 
         public IActionResult Index()
         {
-<<<<<<< HEAD
             var products = db.SanPhams.ToList();
             ViewBag.PageCount = Math.Ceiling(1.0 * products.Count / PAGE_SIZE);
-=======
-            ViewBag.PageCount = Math.Round(products.Count() / PAGE_SIZE * 1.0);
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
             return View(products);
         }
 
         [Route("/ListProduct")]
         public IActionResult ListProduct(int page = 1)
         {
-<<<<<<< HEAD
-            var Products = db.SanPhams.ToList();
-            ViewBag.CurrPage = page;
-            int skip = (page - 1) * PAGE_SIZE < 0 ? 0 : (page - 1) * PAGE_SIZE;
-            Products = Products.Skip(skip).Take(PAGE_SIZE).ToList();
-            return PartialView("Product",Products);
-=======
+            var products = db.SanPhams.ToList();
             ViewBag.CurrPage = page;
             int skip = (page - 1) * PAGE_SIZE < 0 ? 0 : (page - 1) * PAGE_SIZE;
             products = products.Skip(skip).Take(PAGE_SIZE).ToList();
-            return PartialView(products);
->>>>>>> adb625b050f068147097e31cab97f118394b62e4
+            return PartialView("Product",products);
         }
 
         public IActionResult Privacy()
@@ -91,7 +69,6 @@ namespace Project_BE_Web.Controllers
             {
                 return PartialView("ListEmpty");
             }
-            
             return PartialView("Product", products);
 
         }
@@ -114,7 +91,7 @@ namespace Project_BE_Web.Controllers
         {
             minPrice = minPrice * 1000000;
             maxPrice = maxPrice * 1000000;
-            var products = db.SanPhams.Where(p => p.Gia >= (decimal)minPrice && (maxPrice == null || p.Gia <= (decimal)maxPrice)).ToList();
+            var products = db.SanPhams.Where(p => p.Giaban >= (decimal)minPrice && (maxPrice == null || p.Giaban <= (decimal)maxPrice)).ToList();
             if (products.Count == 0)
             {
                 return PartialView("ListEmpty");
@@ -131,10 +108,10 @@ namespace Project_BE_Web.Controllers
             switch (sortOrder)
             {
                 case "price_desc":
-                    products = products.OrderByDescending(p => p.Gia);
+                    products = products.OrderByDescending(p => p.Giaban);
                     break;
                 case "price_asc":
-                    products = products.OrderBy(p => p.Gia);
+                    products = products.OrderBy(p => p.Giaban);
                     break;
                 case "default":
                     break;
