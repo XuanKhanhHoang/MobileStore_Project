@@ -114,7 +114,7 @@ namespace Project_BE_Web.Controllers
 
             
           var  products = db.SanPhams
-         .Where(p => p.TenSp.ToUpper().Contains(searchString.ToUpper())).ToList();
+         .Where(p => p.TenSp.ToUpper().Replace(" ","").Contains(searchString.ToUpper().Replace(" ",""))).ToList();
             if (products.Count == 0)
             {
                 return PartialView("ListEmpty");
