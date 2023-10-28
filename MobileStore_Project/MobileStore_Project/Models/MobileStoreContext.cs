@@ -165,7 +165,10 @@ namespace MobileStore_Project.Models
 
                 entity.Property(e => e.Gia).HasColumnName("Gia");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> adb625b050f068147097e31cab97f118394b62e4
                 entity.HasOne(d => d.MaNsxNavigation)
                     .WithMany(p => p.SanPhams)
                     .HasForeignKey(d => d.MaNsx)

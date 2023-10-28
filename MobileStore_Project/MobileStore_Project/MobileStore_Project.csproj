@@ -4,7 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+<<<<<<< HEAD
     <UserSecretsId>583e03ed-f292-4279-a24a-d4aa0eade268</UserSecretsId>
+=======
+    <UserSecretsId>19534f9e-6b6c-4ee8-abd7-664d4585f46b</UserSecretsId>
+>>>>>>> adb625b050f068147097e31cab97f118394b62e4
   </PropertyGroup>
 
   <ItemGroup>
@@ -58,17 +62,28 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
+=======
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+>>>>>>> adb625b050f068147097e31cab97f118394b62e4
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+<<<<<<< HEAD
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ImageProduct\" />
+=======
+>>>>>>> adb625b050f068147097e31cab97f118394b62e4
   </ItemGroup>
 
 </Project>

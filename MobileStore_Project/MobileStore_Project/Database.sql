@@ -1,0 +1,18 @@
+﻿insert into SanPham
+values('IP1', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('002', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('003', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('004', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('005', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('006', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('007', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('008', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('009', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0010', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0011', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_plus.png'),
+('0012', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0013', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0014', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0015', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0016', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png'),
+('0017', 'APPLE', 2, 'IP', null, null, null, 10, null, './img/iphone_15_pink.png')
