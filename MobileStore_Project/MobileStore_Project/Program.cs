@@ -1,6 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using MobileStore_Project.Models;
+using Project_BE_Web.Interfaces.Services;
+using Project_BE_Web.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<IBufferedFileUploadService, BufferedFileUploadLocalService>();
+
 
 // Add services to the container.
+builder.Services.AddDbContext<MobileStoreContext>(options => options
+.UseSqlServer(builder.Configuration.GetConnectionString("MobileStoreContext")));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

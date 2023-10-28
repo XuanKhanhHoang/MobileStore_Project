@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/home.css" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -16,15 +17,15 @@
     <header class="py-3 position-sticky mb-4 shadow-sm">
         <div class="container d-flex align-items-center">
             <div class="sidebar-btn d-none">
-                <i class="fa-solid fa-ellipsis"></i>
+                <i class="fa-solid fa-bars"></i>
             </div>
             <a href="/"
                class="header__brand text-decoration-none text-body fs-2 fw-bold"
-               style="letter-spacing: 2px;">K-Mobile</a>
+               style="letter-spacing: 2px;">MobileStore</a>
 
             <div class="header__search mx-3 position-relative flex-grow-1">
-                <input class="border-0 fs-6 fw-bold" type="text" placeholder="Hôm nay bạn cần gì??" />
-                <a class="search-icon position-absolute text-light fs-5">
+                <input id="search-box" class="border-0 fs-6 fw-bold" type="text" placeholder="Tìm kiếm" />
+                <a id="search-icon" class="search-icon position-absolute text-light fs-5">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
             </div>
@@ -100,8 +101,37 @@
         </ul>
     </div>
 
-    <div class="min-vh-100">
+    <div class="container">
+        <div class="slide-show">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="./img/slider1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./img/slider2.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/slider3.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                @* <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="container min-vh-100">
+
         @RenderBody()
+       
+        
     </div>
     <a href="#"
        class="scroll-btn position-fixed rounded d-flex text-decoration-none">
@@ -152,6 +182,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="./js/layout.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    @RenderSection("ScriptDropDown", required: false)
+  
 </body>
 </html>
