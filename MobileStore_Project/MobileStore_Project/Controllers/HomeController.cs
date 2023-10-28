@@ -8,7 +8,7 @@ namespace Project_BE_Web.Controllers
     public class HomeController : Controller
     {
         MobileStoreContext db;
-        private int PAGE_SIZE = 10;
+        private int PAGE_SIZE = 8;
 
         private readonly ILogger<HomeController> _logger;
 
