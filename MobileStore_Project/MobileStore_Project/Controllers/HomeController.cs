@@ -8,6 +8,7 @@ namespace Project_BE_Web.Controllers
     public class HomeController : Controller
     {
         MobileStoreContext db;
+        private int PAGE_SIZE = 10;
 
         private readonly ILogger<HomeController> _logger;
 
@@ -15,12 +16,24 @@ namespace Project_BE_Web.Controllers
         {
             _logger = logger;
             this.db=db;
+    
         }
 
         public IActionResult Index()
         {
             var products = db.SanPhams.ToList();
+            ViewBag.PageCount = Math.Ceiling(1.0 * products.Count / PAGE_SIZE);
             return View(products);
+        }
+
+        [Route("/ListProduct")]
+        public IActionResult ListProduct(int page = 1)
+        {
+            var Products = db.SanPhams.ToList();
+            ViewBag.CurrPage = page;
+            int skip = (page - 1) * PAGE_SIZE < 0 ? 0 : (page - 1) * PAGE_SIZE;
+            Products = Products.Skip(skip).Take(PAGE_SIZE).ToList();
+            return PartialView("Product",Products);
         }
 
         public IActionResult Privacy()
@@ -33,7 +46,8 @@ namespace Project_BE_Web.Controllers
             return View();
         }
         [Route("/Cart")]
-        public IActionResult Cart() {
+        public IActionResult Cart()
+        {
             return View();
         }
         [Route("/ProductInformation")]
@@ -55,9 +69,9 @@ namespace Project_BE_Web.Controllers
             {
                 return PartialView("ListEmpty");
             }
+            
             return PartialView("Product", products);
-          
-           
+
         }
 
         [Route("/filterByDiscount")]
@@ -69,7 +83,7 @@ namespace Project_BE_Web.Controllers
             {
                 return PartialView("ListEmpty");
             }
-
+            
             return PartialView("Product", products);
            
         }
@@ -78,12 +92,12 @@ namespace Project_BE_Web.Controllers
         {
             minPrice = minPrice * 1000000;
             maxPrice = maxPrice * 1000000;
-            var products = db.SanPhams.Where(p => p.Giaban >= (decimal)minPrice && (maxPrice == null || p.Giaban <= (decimal)maxPrice)).ToList();
+            var products = db.SanPhams.Where(p => p.Gia >= (decimal)minPrice && (maxPrice == null || p.Gia <= (decimal)maxPrice)).ToList();
             if (products.Count == 0)
             {
                 return PartialView("ListEmpty");
             }
-
+           
             return PartialView("Product", products);
            
         }
@@ -95,10 +109,10 @@ namespace Project_BE_Web.Controllers
             switch (sortOrder)
             {
                 case "price_desc":
-                    products = products.OrderByDescending(p => p.Giaban);
+                    products = products.OrderByDescending(p => p.Gia);
                     break;
                 case "price_asc":
-                    products = products.OrderBy(p => p.Giaban);
+                    products = products.OrderBy(p => p.Gia);
                     break;
                 case "default":
                     break;
@@ -119,6 +133,7 @@ namespace Project_BE_Web.Controllers
             {
                 return PartialView("ListEmpty");
             }
+            
             return PartialView("Product", products);
       
             

@@ -16,7 +16,7 @@ namespace MobileStore_Project.Models
         public int? SoLuong { get; set; }
         public string? TenSp { get; set; }
 
-        public decimal? Giaban { get; set; }
+        public decimal? Gia { get; set; }
         public string? CauHinh { get; set; }
         public string? MoTa { get; set; }
         public string? PhienBan { get; set; }

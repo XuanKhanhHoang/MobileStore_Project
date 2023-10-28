@@ -1,8 +1,17 @@
 ﻿
+
 @model IEnumerable<SanPham>
+@{
+    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 1;
+    
+
+    int startPage = 1;
+    int endPage = pageCount;
+}
+
 <h1 class="mb-3 fs-6 fw-bold">
     <i class="fa-solid fa-house"></i>
-    Trang chủ
+    Trang chủ @ViewBag.PageCount
 </h1>
 <div class="sort-product">
     <label for="">Lọc danh sách:</label>
@@ -128,23 +137,28 @@
     <div id="list-product" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2 g-md-3 g-lg-2 g-xl-2">
        <Partial name="Product"/>
     </div>
+    
 </div>
 
 <div class="page">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
+            <li class="page-item previous">
+                <button class="page-link" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
-                </a>
+                </button>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
+           
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item pagniation-item">
+                    <button class="page-link">@i</button>
+                </li>
+            }
+            <li class="page-item next">
+                <button class="page-link" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
-                </a>
+                </button>
             </li>
         </ul>
     </nav>
@@ -235,6 +249,42 @@
                 
             })
         }
+
+        var currPage = 1;
+        function getDataPage(currPage) {
+            
+                $.ajax({
+                    url: "/ListProduct",
+                    data: { page: currPage },
+                    success: function (result) {
+                        $('#list-product').html(result);
+                    }
+                })
+    
+            
+        }
+
+        $(".pagniation-item .page-link").click(function (event) {
+            event.preventDefault();
+            currPage = $(this).text();
+            getDataPage(currPage);
+        })
+        $(".page-item.previous .page-link").click(function (event) {
+            event.preventDefault();
+            currPage--;
+            getDataPage(currPage);
+        })
+        $(".page-item.next .page-link").click(function (event) {
+            event.preventDefault();
+            currPage++;
+            getDataPage(currPage);
+            
+        })
+
+        $("document").ready(() => {
+            getDataPage(1);
+        })
+
     </script>
 }
 
