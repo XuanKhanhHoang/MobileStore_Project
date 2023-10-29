@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using MobileStore_Project.Models;
 using System.Diagnostics;
@@ -51,10 +52,14 @@ namespace Project_BE_Web.Controllers
             return View();
         }
         [Route("/ProductInformation")]
-        public IActionResult ProductInformation()
+        public IActionResult ProductInformation(string productID)
         {
-            return View();
+            var product = db.SanPhams.SingleOrDefault(p => p.MaSp == productID);
+            var imageProduct = db.SanPhams.Where(p => p.MaSp == productID).ToList();
+            ViewBag.Image = imageProduct;
+            return View(product);
         }
+
         [Route("/SearchOrder")]
         public IActionResult SearchOrder()
         {
@@ -69,6 +74,7 @@ namespace Project_BE_Web.Controllers
             {
                 return PartialView("ListEmpty");
             }
+           
             return PartialView("Product", products);
 
         }
@@ -138,6 +144,7 @@ namespace Project_BE_Web.Controllers
             
         }
 
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
