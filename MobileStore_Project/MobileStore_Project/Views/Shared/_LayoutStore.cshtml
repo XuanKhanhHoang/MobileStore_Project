@@ -34,14 +34,14 @@
                 </a>
             </div>
             <div class="order__tools d-flex justify-content-center align-items-center">
-                <div class="header__order d-flex align-items-center">
+                <a asp-action="SearchOrder" asp-controller="Home" class="header__order d-flex align-items-center text-decoration-none">
                     <i class="fa-solid fa-truck fs-5 me-2"></i>
                     <span class="text-center">Kiểm tra đơn hàng</span>
-                </div>
-                <div class="header__cart text-center position-relative">
-                    <i class="fa-solid fa-cart-shopping fs-3 ms-3" style="cursor: pointer;"></i>
+                </a>
+                <a asp-action="Cart" asp-controller="Home" class="header__cart text-center position-relative text-decoration-none">
+                    <i class="fa-solid fa-cart-shopping fs-3 ms-3" style="cursor: pointer;color:var(--primary-color);"></i>
                     <div class="quantity px-1 position-absolute rounded fw-bold">0</div>
-                </div>
+                </a>
             </div>
             <div class="header__login text-center fs-6 fw-bold ms-4">
                 @if (email != null)
