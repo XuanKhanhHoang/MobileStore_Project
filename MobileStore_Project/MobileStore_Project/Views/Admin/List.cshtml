@@ -1,0 +1,79 @@
+﻿@model List<MobileStore_Project.Models.SanPham>;
+
+@{
+    foreach (var item in Model)
+    {
+    <tr>
+                                <td><input type="checkbox" class="" /></td>
+                                <td class="d-none d-md-table-cell">
+                                    <img src="@item.AnhSp.Split(",")[0]"
+                                         class="h-100"
+                                         style="width: 40px"
+                                         alt="" />
+                                </td>
+                                <th scope="row">@item.MaSp</th>
+                                <td>@item.TenSp</td>
+                                <td>@item.MaNsxNavigation.TenNsx</td>
+                                <td class="d-none d-md-table-cell">@item.SoLuong</td>
+                                <td class="d-none d-md-table-cell">
+                                    <input type="datetime" disabled value="22:24 PM 10/21/2023" />
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-row justify-content-center">
+                                        <a class="border-0 me-2 rounded"
+                                           style="color: black"
+                                           href="/admin/EditAProduct?id=@item.MaSp">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a class="border-0 me-2 rounded"
+                                           style="color: black"
+                                            onclick="SetDeleteId(@item.MaSp)" 
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+    </tr>
+        
+    
+   
+}
+}<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Xác nhận xóa </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="delModel">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" onclick="redirectDel()" class="btn btn-primary">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+      let maSPDel = 0;
+      function SetDeleteId(MaSp) {
+          maSPDel = MaSp;
+          $("#delModel").text("Xác nhận xóa maSp=" + maSPDel);
+      }
+      function redirectDel() {
+        $.post({
+            type: "POST",
+            url: "/admin/DellAProduct?id=" + maSPDel,
+            success: function (data) {
+                location.reload();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#delModel").text("Err");
+            }
+        });
+
+      }
+</script>
+    
+

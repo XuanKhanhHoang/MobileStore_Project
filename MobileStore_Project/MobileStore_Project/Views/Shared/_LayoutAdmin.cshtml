@@ -7,12 +7,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Project_BE_Web</title>
-    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="./css/admin/layout_admin.css" asp-append-version="true" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/admin/layout_admin.css" asp-append-version="true" />
+    <script src="/lib//bootstrap/dist//js/bootstrap.bundle.min.js"></script>
+    <script src="/lib//jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="/fontawesome//css/all.min.css" />
 </head>
 <body>
     <div class="wrapper">
@@ -25,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <img class="user_admin-img ms-4" src="./img/Admin/useradmin.png" alt="">
+                        <img class="user_admin-img ms-4" src="/img/Admin/useradmin.png" alt="">
                     </div>
                     <div class="col-8">
                         <p class="text-white fs-5">Xin chào</p>
@@ -50,10 +51,10 @@
                         </a>
                         <ul id="products" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link fs-5 ms-5">Danh sách</a>
+                                <a href="/Admin" class="sidebar-link fs-5 ms-5">Danh sách</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link fs-5 ms-5">Thêm mới</a>
+                                <a href="/Admin/AddNewProduct" class="sidebar-link fs-5 ms-5">Thêm mới</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link fs-5 ms-5">Xoá</a>
@@ -118,7 +119,7 @@
                         <a href="#" class="sidebar-link fs-4 text-center flex-grow-1">
                             <i class="fa-solid fa-gear"></i>
                         </a>
-                        <a href="#" class="sidebar-link fs-4 text-center flex-grow-1">
+                        <a asp-action="Logout" asp-controller="Home" class="sidebar-link fs-4 text-center flex-grow-1">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
                    
@@ -136,7 +137,7 @@
                 <div class="header-admin ms-auto d-flex align-items-center justify-content-center">
                     <p class="header-nav--text fs-5 mb-0 me-4 fw-500 text-white">Quản lí nghiệp vụ</p>
                     <i class="fa-regular fa-envelope fs-3 me-3 header-email text-white"></i>
-                    <a href="#"><img src="./img/Admin/useradmin.png" class="header-img--admin fs-2 ms-3" alt=""></a>
+                    <a href="#"><img src="/img/Admin/useradmin.png" class="header-img--admin fs-2 ms-3" alt=""></a>
                     <div class="btn-group">
                         <button type="button" class="btn btn border-0 dropdown-toggle fs-5 fw-500 text-white" data-bs-toggle="dropdown" aria-expanded="false">
                             admin
@@ -157,8 +158,9 @@
             </main>
         </div>
     </div>
-    <script src="./js/layout_admin.js"></script>
+    <script src="/js/layout_admin.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Script",required:false)
     @RenderSection("ScriptDropDown", required: false)
 </body>
 </html>

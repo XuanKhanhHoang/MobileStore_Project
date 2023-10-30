@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<Nsx> 
+<ul class="product-dropdown_list list-unstyled d-flex flex-wrap">
+    @foreach(var nsx in Model)
+    {
+        <li>
+            <button id="@nsx.MaNsx" class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">
+                @nsx.TenNsx
+            </button>
+        </li>
+    }
+</ul>

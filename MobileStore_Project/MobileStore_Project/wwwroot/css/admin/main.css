@@ -1,6 +1,6 @@
 body {
     background-color: #f4f4f4;
-    padding: 32px 0;
+    
 }
 
 .adm-product-info {
@@ -74,7 +74,6 @@ body {
     height: 100px;
     margin-top: 12px;
     display: block;
-    width: 100%;
 }
 
 

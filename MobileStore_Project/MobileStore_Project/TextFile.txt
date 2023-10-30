@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Data Source=(local); Initial Catalog=MobileStore; Persist Security Info=True; User ID=sa; Password=123;" Microsoft.EntityFrameworkCore.SqlServer -Project MobileStore_Project -OutputDir Models -force

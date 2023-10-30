@@ -6,7 +6,7 @@ namespace MobileStore_Project.Models
     public partial class DonHang
     {
         public string MaDh { get; set; } = null!;
-        public string MaSp { get; set; } = null!;
+        public int MaSp { get; set; }
         public string Id { get; set; } = null!;
         public DateTime? NgayTao { get; set; }
         public int? SoLuong { get; set; }

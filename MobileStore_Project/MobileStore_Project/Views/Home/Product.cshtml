@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SanPham>
+@{
+    double ck(SanPham product){
+        if (product.Giaban != null) return (double)product.Giaban;
+        return 0;
+    }
+}
+@foreach (var product in Model)
+{
+    <div class="col">
+        <a asp-controller="Home" asp-action="ProductInformation" class="product h-100">
+            <div class="product_img" style="background-image: url(@product.AnhSp.Split(",")[0]);"></div>
+            <div class="product-info">
+                <h6 class="product-info_name">@product.TenSp (512GB) - Chính hãng VN/A</h6>
+                @{
+                    double price = ck(product);
+
+                }
+                <span class="product-info_price">@price.ToString("N0") ₫</span>
+                @* <label class="product-info_label">Giá lên đời từ: <span>32,000,000</span></label> *@
+            </div>
+            <div class="note">
+
+                @if (product.KhuyenMai != null)
+                {
+                    <span class="bag">
+                        Khuyến Mại
+                        <span>@product.KhuyenMai %</span>
+                    </span>
+                    //<label title="Đã sẵn hàng màu Titan Xanh."></label>
+                    <span class="d-block pt-2" style="color:#333">Ngày kết thúc:</span>
+
+                }
+
+            </div>
+        </a>
+    </div>
+}

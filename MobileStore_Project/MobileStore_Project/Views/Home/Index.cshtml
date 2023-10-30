@@ -1,245 +1,159 @@
+
 ﻿@{
-    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 0;
-    int currPage = ViewBag.CurrPage != null ? (int)ViewBag.CurrPage : 0;
+    int pageCount = ViewBag.PageCount != null ? (int)ViewBag.PageCount : 1;
 
     int startPage = 1;
     int endPage = pageCount;
 }
-<head>
-    <link rel="stylesheet" href="./css/home.css" />
-</head>
-<div class="container">
-    <div class="slide-show">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="./img/slider1.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="./img/slider2.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/slider3.png" class="d-block w-100" alt="...">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <h1 class="mb-3 fs-6 fw-bold">
-        <i class="fa-solid fa-house"></i>
-        Trang chủ
-    </h1>
-
-    <div class="sort-product">
-        <label for="">Lọc danh sách:</label>
-
-        <ul class="sort-product_list">
-            <li class="sort-product_item">
-                <span>
-                    Thương hiệu
-                    <i class="fa-solid fa-angle-down"></i>
-                </span>
-                <div class="product-dropdown h-auto">
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Apple</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Sam Sung</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Oppo</button>
-                        </li>
-                    </ul>
-
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Nokia</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Vivo</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Xiaomi</button>
-                        </li>
-                    </ul>
-
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Realmi</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Huawei</button>
-                        </li>
-                    </ul>
-                </div>
-            </li>
 
 
-            <li class="sort-product_item">
-                <span>
-                    Giá
-                    <i class="fa-solid fa-angle-down"></i>
-                </span>
-                <div class="product-dropdown h-auto">
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">Dưới 1 triệu</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">1-4 triệu</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">4-8 triệu</button>
-                        </li>
+@model IEnumerable<SanPham>
 
-                    </ul>
+<h1 class="mb-3 fs-6 fw-bold">
+    <i class="fa-solid fa-house"></i>
+    Trang chủ @ViewBag.PageCount
+</h1>
+<div class="sort-product">
+    <label for="">Lọc danh sách:</label>
 
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">8-12 triệu</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">12-16 triệu</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">16-20 triệu</button>
-                        </li>
-
-                    </ul>
-
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">20-100 triệu</button>
-                        </li>
-
-                        <li>
-                            <button class="product-dropdown-price product-dropdown_btn bg-transparent border-0">Trên 100 triệu</button>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="sort-product_item">
-                <span class="product-dropdown-discount">Khuyến mại</span>
-            </li>
-
-            <li class="sort-product_item">
-                <span>
-                    Sắp xếp
-                    <i class="fa-solid fa-angle-down"></i>
-                </span>
-                <div class="product-dropdown h-auto" style="min-width: 152px">
-                    <ul class="product-dropdown_list list-unstyled">
-                        <li>
-                            <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Mặc định</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm mới</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm cũ</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Giá cao đến thấp</button>
-                        </li>
-                        <li>
-                            <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Giá thấp đến cao</button>
-                        </li>
-                    </ul>
-
-                </div>
-            </li>
-
-        </ul>
-
-    </div>
-    <!-- for mobile -->
-    <ul class="sort-product-mb text-center p-0 list-unstyled allow-scroll">
-
-        <li class="sort-product-mb_item btn btn-success" style="height: 36px;" onclick="dropdown();">
+    <ul class="sort-product_list">
+        <li class="sort-product_item">
             <span>
                 Thương hiệu
-                <i class="fa-solid fa-caret-down"></i>
+                <i class="fa-solid fa-angle-down"></i>
             </span>
-
-        </li>
-        <li class="sort-product-mb_item">
-            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Mới nhất</button>
-        </li>
-
-        <li class="sort-product-mb_item">
-            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-discount">Khuyến mại</button>
+            <div class="product-dropdown h-auto">
+                @await Component.InvokeAsync("Brand")
+            </div>
         </li>
 
-        <li class="sort-product-mb_item">
-            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Giá thấp</button>
+
+        <li class="sort-product_item">
+            <span>
+                Giá
+                <i class="fa-solid fa-angle-down"></i>
+            </span>
+            <div class="product-dropdown h-auto">
+                <ul class="product-dropdown_list list-unstyled d-flex flex-wrap">
+                    <li>
+                        <button value="0-1" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">Dưới 1 triệu</button>
+                    </li>
+                    <li>
+                        <button value="1-4" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">1-4 triệu</button>
+                    </li>
+                    <li>
+                        <button value="4-8" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">4-8 triệu</button>
+                    </li>
+                    <li>
+                        <button value="8-12" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">8-12 triệu</button>
+                    </li>
+                    <li>
+                        <button value="12-16" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">12-16 triệu</button>
+                    </li>
+                    <li>
+                        <button value="16-20" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">16-20 triệu</button>
+                    </li>
+
+                    <li>
+                        <button value="20-100" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">20-100 triệu</button>
+                    </li>
+
+                    <li>
+                        <button value="100-" class="product-dropdown-price product-dropdown_btn bg-transparent border-0">Trên 100 triệu</button>
+                    </li>
+                </ul>
+            </div>
         </li>
 
-        <li class="sort-product-mb_item">
-            <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Giá cao</button>
+        <li class="sort-product_item">
+            <span class="product-dropdown-discount">Khuyến mại</span>
         </li>
 
+        <li class="sort-product_item">
+            <span>
+                Sắp xếp
+                <i class="fa-solid fa-angle-down"></i>
+            </span>
+            <div class="product-dropdown h-auto" style="min-width: 154px">
+                <ul class="product-dropdown_list list-unstyled">
+                    <li>
+                        <button id="sort_default" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Mặc định</button>
+                    </li>
+                    <li>
+                        <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm mới</button>
+                    </li>
+                    <li>
+                        <button id="" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm cũ</button>
+                    </li>
+                    <li>
+                        <button id="price_desc" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Giá cao đến thấp</button>
+                    </li>
+                    <li>
+                        <button id="price_asc" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Giá thấp đến cao</button>
+                    </li>
+                </ul>
+
+            </div>
+        </li>
 
     </ul>
-    <div class="product-dropdown-mb product-dropdown">
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Apple</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Sam Sung</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Oppo</button>
-            </li>
-        </ul>
-
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Nokia</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Vivo</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Xiaomi</button>
-            </li>
-        </ul>
-
-        <ul class="product-dropdown_list list-unstyled">
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Realmi</button>
-            </li>
-            <li>
-                <button class="product-dropdown-brand product-dropdown_btn bg-transparent border-0">Huawei</button>
-            </li>
-        </ul>
-    </div>
-    <!--  -->
-    <div class="products">
-        <h2 class="products_title fw-bold">Danh sách sản phẩm</h2>
-        <div id="list-product" class="row gy-3">
-            <partial name="ListProduct" />
-        </div>
-    </div>
 
 
 </div>
+<!-- for mobile -->
+<ul class="sort-product-mb text-center p-0 list-unstyled allow-scroll">
+
+    <li class="sort-product-mb_item btn btn-success" style="height: 36px;" onclick="subMenu();">
+        <span>
+            Thương hiệu
+            <i class="fa-solid fa-caret-down"></i>
+        </span>
+
+    </li>
+    <li class="sort-product-mb_item">
+        <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Mới nhất</button>
+    </li>
+
+    <li class="sort-product-mb_item">
+        <button class="sort-product-mb_btn btn btn-success border-0 product-dropdown-discount">Khuyến mại</button>
+    </li>
+
+    <li class="sort-product-mb_item">
+        <button id="price_asc" class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Giá thấp</button>
+    </li>
+
+    <li class="sort-product-mb_item">
+        <button id="price_desc" class="sort-product-mb_btn btn btn-success border-0 product-dropdown-sort">Giá cao</button>
+    </li>
+
+
+</ul>
+<div class="product-dropdown-mb product-dropdown">
+    @await Component.InvokeAsync("Brand")
+</div>
+<!--  -->
+
+<div class="products">
+    <h2 class="products_title fw-bold">Danh sách sản phẩm</h2>
+    <div id="list-product" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2 g-md-3 g-lg-2 g-xl-2">
+       <Partial name="Product"/>
+    </div>
+    
+</div>
+
 <div class="page">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item previous">
-                <a class="page-link" href="#" aria-label="Previous">
+
+                <a href="#" class="page-link" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             @for (int i = startPage; i <= endPage; i++)
             {
                 <li class="page-item pagniation-item">
-                    <a class="page-link" href="">@i</a>
+                    <a class="page-link" href="#">@i</a>
                 </li>
             }
             <li class="page-item next">
@@ -250,66 +164,99 @@
         </ul>
     </nav>
 </div>
+
 @section Scripts{
     <script>
-        function dropdown() {
+        function subMenu () {
             $(".product-dropdown").toggleClass("d-flex")
             $(".sort-product-mb").toggleClass("allow-scroll")
-            $(".sort-product-mb").toggleClass("remove-scroll")
+            $(".sort-product-mb").toggleClass("no-scroll")
         }
 
         $(".product-dropdown-brand").click(function () {
-            var brand = $(this).text();
-            console.log(brand)
+            var idbrand = $(this).attr('id');
+            console.log(idbrand)
             $.ajax({
-                url: "/",
-                data: { brand: brand },
+                url: "/filterByBrand",
+                data: { idbrand: idbrand },
                 success: function (response) {
-                    //$("#list-product").html(response);
+                    $("#list-product").html(response);
+                    console.log(response)
+                },
+                error: function(err) {
+                    console.log(err)
+
                 }
             })
         })
 
         $(".product-dropdown-price").click(function () {
-            var price = $(this).text();
-            console.log(price)
-            $.ajax({
-                url: "/",
-                data: { price: price },
-                success: function (response) {
-                    //$("#list-product").html(response);
-                }
-            })
+            var priceRange = $(this).val();
+            var [minPrice, maxPrice] = priceRange.split("-");
+            filterByPrice(parseFloat(minPrice), maxPrice ? parseFloat(maxPrice) : null);
+            
         })
 
-        $(".product-dropdown-discount").click(function () {
-            var discount = $(this).text();
-            console.log(discount)
+        function filterByPrice(minPrice, maxPrice) {
             $.ajax({
-                url: "/",
-                data: { discount: discount },
+                url: "/filterByPrice",
+                data: { minPrice: minPrice, maxPrice:maxPrice },
                 success: function (response) {
-                    //$("#list-product").html(response);
+                    $("#list-product").html(response);
+                }
+            })
+        }
+
+        $(".product-dropdown-discount").click(function () {
+            $.ajax({
+                url: "/filterByDiscount",
+                
+                success: function (response) {
+                    $("#list-product").html(response);
                 }
             })
         })
 
         $(".product-dropdown-sort").click(function () {
-            var sort = $(this).text();
-            console.log(sort)
+            var sortOrder = $(this).attr('id');
+            console.log(sortOrder)
             $.ajax({
-                url: "/",
-                data: { sort: sort },
+                url: "/SortProducts",
+                data: { sortOrder: sortOrder },
                 success: function (response) {
-                    //$("#list-product").html(response);
+                    $("#list-product").html(response);
                 }
             })
         })
+        
+        
+        $("#search-icon").on('click', function () {
+            var searchString = $("#search-box").val();
+            if(searchString !== "") {
+                 Search(searchString)
+                 
+            }
+        });
 
-        function getDataPage(page) {
+        function Search(searchString) {
+            $.ajax({
+                url: "/Search",
+              
+                data: { searchString: searchString },
+                success: function (response) {
+                    $("#list-product").html(response);
+                    
+                }
+                
+            })
+        }
+
+
+        var currPage = 1;
+        function getDataPage(currPage) {
             $.ajax({
                 url: "/ListProduct",
-                data: { page },
+                data: { page: currPage },
                 success: function (result) {
                     $('#list-product').html(result);
                 }
@@ -318,19 +265,18 @@
 
         $(".pagniation-item .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(this).text();
-            getDataPage(page);
+            currPage = $(this).text();
+            getDataPage(currPage);
         })
-
         $(".page-item.previous .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(".page-item.previous + .pagniation-item .page-link").text();
-            getDataPage(--page);
+            currPage--;
+            getDataPage(currPage);
         })
         $(".page-item.next .page-link").click(function (event) {
             event.preventDefault();
-            var page = $(".page-item.next").prev().text();
-            getDataPage(++page);
+            currPage++;
+            getDataPage(currPage);
         })
 
         $("document").ready(() => {
