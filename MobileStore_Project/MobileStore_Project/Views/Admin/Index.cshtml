@@ -10,6 +10,7 @@
 }
 @section Scripts {
     <script>
+        let hrefDel = "";
         const handleSearch = (e) => {
             let key = $("#seachProductListInp").val().trim();
             $.ajax({
@@ -107,7 +108,7 @@
         </thead>
         <tbody id="productListBodyTable">
             <Partial name="List" />
-          
+            
         </tbody>
       </table>
     <div class="page">
@@ -133,4 +134,5 @@
             </ul>
         </nav>
     </div>
+   
     </main>

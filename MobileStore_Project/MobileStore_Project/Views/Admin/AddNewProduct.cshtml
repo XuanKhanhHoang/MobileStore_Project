@@ -213,13 +213,11 @@
         };
         let f = async  (e)=> {
             e.preventDefault();
-           
             await f1();
-           
-            
             e.currentTarget.submit();
             return true;
         }
+
         $("#valueForm").submit(f);
         function urltoFile(url, filename, mimeType) {
             mimeType = mimeType || (url.match(/^data:([^;]+);/) || '')[1];

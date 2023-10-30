@@ -104,5 +104,19 @@ namespace Project_BE_Web.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public bool DellAProduct(int id)
+
+        {
+            var entity = db.SanPhams.FirstOrDefault(e => e.MaSp == id);
+            if (entity != null)
+            {
+                db.SanPhams.Remove(entity);
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
     }
 }
