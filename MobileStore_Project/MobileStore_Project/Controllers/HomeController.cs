@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MobileStore_Project.Models;
+using MobileStore_Project.Models.Authentication;
 using System.Diagnostics;
 
 namespace Project_BE_Web.Controllers
@@ -23,6 +24,7 @@ namespace Project_BE_Web.Controllers
         {
             var products = db.SanPhams.ToList();
             ViewBag.PageCount = Math.Ceiling(1.0 * products.Count / PAGE_SIZE);
+            ViewBag.Email = HttpContext.Session.GetString("Email");
             return View(products);
         }
 
@@ -40,21 +42,89 @@ namespace Project_BE_Web.Controllers
         {
             return View();
         }
-        [Route("/LoginRegister")]
-        public IActionResult LoginRegister()
+        [HttpGet]
+        [Route("/Login")]
+        public IActionResult Login()
+        {
+            if (HttpContext.Session.GetString("Email") == null)
+            {
+                return View("Login");
+            }
+            else return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        [Route("/Login")]
+        public IActionResult Login(KhachHang kh)
+        {
+            if (HttpContext.Session.GetString("Email") == null)
+            {
+                var admins = db.Admins.Where(ad => ad.Email.Equals(kh.Email) && ad.Passw.Equals(kh.Passw)).FirstOrDefault();
+                if (admins != null)
+                {
+                    HttpContext.Session.SetString("Roles", "Admin");
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    var khachhang = db.KhachHangs.Where(khachH => khachH.Email.Equals(kh.Email)
+                        && khachH.Passw.Equals(kh.Passw)).FirstOrDefault();
+
+                    if (khachhang != null)
+                    {
+
+                        HttpContext.Session.SetString("Email", khachhang.Email.ToString());
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+            }
+            return View("Login");
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            HttpContext.Session.Remove("Email");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [Route("/Signup")]
+        public IActionResult Signup()
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/Signup")]
+        public IActionResult Signup([Bind("Email, Passw, HoTen, SoDt, DiaChi")] KhachHang kh)
+        {
+            var list = db.KhachHangs.ToList();
+            kh.Id = (list[list.Count - 1].Id) + 1;
+            if (ModelState.IsValid)
+            {
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Home");
+            }
+            return View();
+
+        }
+
+        [Authentication]
         [Route("/Cart")]
         public IActionResult Cart()
         {
             return View();
         }
         [Route("/ProductInformation")]
-        public IActionResult ProductInformation()
+        public IActionResult ProductInformation(int productID)
         {
-            return View();
+            var product = db.SanPhams.SingleOrDefault(p => p.MaSp == productID);
+            var imageProduct = db.SanPhams.Where(p => p.MaSp == productID).ToList();
+            ViewBag.Image = imageProduct;
+            return View(product);
         }
+        [Authentication]
         [Route("/SearchOrder")]
         public IActionResult SearchOrder()
         {

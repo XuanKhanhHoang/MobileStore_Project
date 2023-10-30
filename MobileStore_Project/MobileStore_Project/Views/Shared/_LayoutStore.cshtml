@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var email = ViewBag.Email;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,14 +34,29 @@
                 </a>
             </div>
             <div class="order__tools d-flex justify-content-center align-items-center">
-                <div class="header__order d-flex align-items-center">
+                <a asp-action="SearchOrder" asp-controller="Home" class="header__order d-flex align-items-center text-decoration-none">
                     <i class="fa-solid fa-truck fs-5 me-2"></i>
                     <span class="text-center">Kiểm tra đơn hàng</span>
-                </div>
-                <div class="header__cart text-center position-relative">
-                    <i class="fa-solid fa-cart-shopping fs-3 ms-3" style="cursor: pointer;"></i>
+                </a>
+                <a asp-action="Cart" asp-controller="Home" class="header__cart text-center position-relative text-decoration-none">
+                    <i class="fa-solid fa-cart-shopping fs-3 ms-3" style="cursor: pointer;color:var(--primary-color);"></i>
                     <div class="quantity px-1 position-absolute rounded fw-bold">0</div>
-                </div>
+                </a>
+            </div>
+            <div class="header__login text-center fs-6 fw-bold ms-4">
+                @if (email != null)
+                {
+                    <a asp-action="Logout" asp-controller="Home" class="text-decoration-none text-dark">
+                        Đăng xuất
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="Login" asp-controller="Home" class="text-decoration-none text-dark">
+                        Đăng nhập
+                    </a>
+                }
+
             </div>
         </div>
     </header>
@@ -77,29 +96,6 @@
         </div>
     </div>
 
-
-    <div class="container">
-        <ul class="list d-flex justify-content-center list-unstyled">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Iphone</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Samsung</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Xiaomi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Asus</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Realme</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Oppo</a>
-            </li>
-        </ul>
-    </div>
 
     <div class="container">
         <div class="slide-show">

@@ -16,10 +16,15 @@ namespace Project_BE_Web.Controllers
         }
         public IActionResult Index()
         {
-            List<SanPham> lst=db.SanPhams.ToList();
-            ViewBag.LstNSX = db.Nsxes.ToList();
-            ViewBag.PageCount = Math.Ceiling(1.0 * lst.Count / PAGE_SIZE);
-            return View(lst);
+            if (HttpContext.Session.GetString("Roles") == "Admin")
+            {
+                List<SanPham> lst=db.SanPhams.ToList();
+                ViewBag.LstNSX = db.Nsxes.ToList();
+                ViewBag.PageCount = Math.Ceiling(1.0 * lst.Count / PAGE_SIZE);
+                return View(lst);
+            }
+            else return RedirectToAction("Login", "Home");
+
         }
         [Route("/List")]
         public IActionResult List(string id, int page = 1)
@@ -36,9 +41,12 @@ namespace Project_BE_Web.Controllers
         }
         public IActionResult AddNewProduct()
         {
-            ViewBag.LstNSX = db.Nsxes.ToList();
-
-            return View();
+            if (HttpContext.Session.GetString("Roles") == "Admin")
+            {
+                ViewBag.LstNSX = db.Nsxes.ToList();
+                return View();
+            }
+            else return RedirectToAction("Login", "Home");
         }
         [HttpPost]
         public IActionResult AddNewProduct(List<IFormFile> fileList, [Bind("MaNsx,SoLuong,TenSp,CauHinh,MoTa,PhienBan,KhuyenMai,GiaBan,MauSac,AnhSp")] SanPham s)

@@ -1,0 +1,134 @@
+﻿@model KhachHang
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>Login</title>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div>
+        <!--login-->
+        <div class="container main" id="mainLogin">
+            <div class="main_log">
+                <div class="row">
+                    <div class="main_log-form d-flex flex-column justify-content-center col-sm-12 col-md-6">
+                        <a href="/" class="text-decoration-none text-dark fs-4 fw-bold">Quay lại</a>
+                        <h5 class="fs-13px my-4">
+                            Vui lòng đăng nhập để nhận nhiều ưu đãi dành riêng cho thành viên.
+                        </h5>
+                        <div class="row justify-content-around" style="margin-bottom: 2rem">
+                            <div class="form-main col-9">
+                                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                                {
+                                    <div class="row mb-4 space">
+                                        <p class="id col-3 fs-14px fw-500">Email</p>
+                                        @Html.TextBoxFor(khachH => khachH.Email, new{@class="w-75 form-control form-control-sm",
+                                    placeholder="Vui lòng nhập địa chỉ email",
+                                    required="required"})
+
+                                        <div class="invalid-feedback invalid-feedback-email">
+                                            Vui lòng kiểm tra lại email của bạn
+                                        </div>
+                                    </div>
+                                    <div class="row space">
+                                        <p class="fs-14px fw-500 col-3">Mật khẩu</p>
+                                        <div class="p-0 m-0 col-9 position-relative">
+                                            @Html.PasswordFor(khachH => khachH.Passw, new{@class="col-12 form-control form-control-sm h-100",
+                                        placeholder="Vui lòng nhập mật khẩu",
+                                        type="password",
+                                        required="required",
+                                            id="pwd"})
+
+                                            <i class="fa-solid fa-eye-slash position-absolute icon_password"
+                                               onclick="hiddenShowPassword(event,`pwd`)"></i>
+                                        </div>
+
+                                        
+                                    </div>
+
+                                    <button class="btn btn-primary mt-3" type="submit">Sign In</button>
+                                }
+                            </div>
+                        </div>
+                        <div class="row justify-content-around ms-1">
+                            <div class="form-check col-5 ps-0">
+                                <input class="form-check-input"
+                                       id="rememberMe"
+                                       type="checkbox"
+                                       style="margin-left: -6px; margin-right: 9px; cursor: pointer"
+                                       value=""
+                                       id="flexCheckChecked"
+                                       checked />
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Nhớ mật khẩu
+                                </label>
+                            </div>
+                            <div class="div-mb-4"
+                                 style="
+                  width: 1px;
+                  height: 16px;
+                  background-color: #002;
+                  padding: 0;
+                  display: table;
+                  margin: auto;
+                  margin-left: 18px;
+                "></div>
+                            <div class="forgot-pass-btn col-5">
+                                <a href="./In-developing.html"
+                                   class="text-decoration-none"
+                                   target="_blank"><i class="ti-hand-point-right"></i> Quên mật khẩu</a>
+                            </div>
+                        </div>
+                        <div class="mt-3 col-xs-12 col-12">
+                            <div class="d-flex justify-content-center"
+                                 onclick="appearRegisterForm()">
+                                <span>
+                                    <i class="ti-user"></i> Chưa có tài khoản. Đăng kí tại
+                                    <a class="blue-text text-decoration-none cursor-pointer" href="/Signup">
+                                        đây
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-md-block log-img"></div>
+                </div>
+            </div>
+        </div>
+        <!--/login-->
+        <!--register-->
+       
+    </div>
+
+    <script>
+        
+
+        
+
+   
+
+
+
+        const hiddenShowPassword = (e, id) => {
+            let idQuery = "#" + id;
+            console.log($(idQuery).attr("type"));
+            if ($(idQuery).attr("type") == "text") {
+                $(idQuery).attr("type", "password");
+            } else {
+                $(idQuery).attr("type", "text");
+            }
+        };
+    </script>
+</body>
+</html>
+

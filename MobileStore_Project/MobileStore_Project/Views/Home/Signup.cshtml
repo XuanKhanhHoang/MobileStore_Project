@@ -1,0 +1,155 @@
+﻿@model KhachHang
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>Login</title>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div>
+        <!--register-->
+        <div class="container main">
+            <a href="/" class="text-decoration-none text-dark fs-4 fw-bold">Quay lại</a>
+            
+            <h5 class="fs-13px my-4">
+                Đăng kí để nhận nhiều ưu đãi dành riêng cho thành viên.
+            </h5>
+            <div  style="margin-bottom: 2rem">
+                <form asp-controller="Home" asp-action="Signup" method="post" class="mt-3">
+
+                    <div style="margin-top:7px" class="form-group row">
+                        <label asp-for="HoTen" class="col-sm-4 col-form-label text-center">Họ và tên:</label>
+                        <div class="col-sm-8">
+                            <input asp-for="HoTen" class="form-control" placeholder="Vui lòng nhập họ và tên" name="HoTen" type="text">
+                            <span asp-validation-for="HoTen" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div style="margin-top:7px" class="form-group row">
+                        <label asp-for="Email" class="col-sm-4 col-form-label text-center">Email:</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Email" class="form-control" placeholder="Vui lòng nhập email" name="Email" type="text">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div style="margin-top:7px" class="form-group row">
+                        <label asp-for="Passw" class="col-sm-4 col-form-label text-center">Mật khẩu:</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Passw" type="password" class="form-control" placeholder="Vui lòng nhập mật khẩu" name="Passw">
+                            <span asp-validation-for="Passw" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div style="margin-top:7px" class="form-group row">
+                        <label asp-for="SoDt" class="col-sm-4 col-form-label text-center">Số điện thoại</label>
+                        <div class="col-sm-8">
+                            <input asp-for="SoDt" class="form-control" name="SoDt" type="text" placeholder="Vui lòng nhập số điện thoại">
+                            <span asp-validation-for="SoDt" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div style="margin-top:7px" class="form-group row">
+                        <label asp-for="DiaChi" class="col-sm-4 col-form-label text-center">Địa Chỉ: </label>
+                        <div class="col-sm-8">
+                            <input asp-for="DiaChi" class="form-control" name="DiaChi" type="text" placeholder="Vui lòng nhập địa chỉ">
+                            <span asp-validation-for="DiaChi" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mt-3">Create</button>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @* <script>
+        function appearRegisterForm() {
+            $("#mainLogin").hide(300);
+            $("#mainRegister").show(1000);
+        }
+        function appearLoginForm() {
+            $("#mainRegister").hide(300);
+            $("#mainLogin").show(1000);
+        }
+
+        //check valid data
+        const validateLoginData = () => {
+            let res_valid = false;
+            let re = /^\S+@@\S+\.\S+$/;
+            //email
+            let v = $("#email").val();
+            if (re.test(v) == false) {
+                $(".invalid-feedback-email").addClass("show");
+            } else $(".invalid-feedback-email").removeClass("show");
+            //password
+            if ($("#pwd").val().length == 0) {
+                $(".invalid-feedback-password").addClass("show");
+                return false;
+            } else $(".invalid-feedback-password").removeClass("show");
+        };
+
+        const validateRegisterData = () => {
+            let res_valid = false;
+            let re = /^\S+@@\S+\.\S+$/;
+            let v = $("#res_email").val();
+            if (re.test(v) == false) {
+                $(".invalid-feedback-res-email").addClass("show");
+                res_valid = true;
+            } else {
+                $(".invalid-feedback-res-email").removeClass("show");
+            }
+            if ($("#name").val().length == 0) {
+                $(".invalid-feedback-regis-name").addClass("show");
+                res_valid = true;
+            } else {
+                $(".invalid-feedback-regis-name").removeClass("show");
+            }
+            if (
+                $("#res_pwd").val() == $("#re_pwd").val() &&
+                `${$("#re_pwd").val()}` !== ""
+            ) {
+                $(".invalid-feedback-regis-re_password").removeClass("show");
+            } else {
+                $(".invalid-feedback-regis-re_password").addClass("show");
+                res_valid = true;
+            }
+            if ($("#res_pwd").val().length == 0) {
+                $(".invalid-feedback-res_password").addClass("show");
+                res_valid = true;
+            } else {
+                $(".invalid-feedback-res_password").removeClass("show");
+            }
+        };
+
+        //sync enter key
+        document.addEventListener("keyup", syncEnterKey);
+        function syncEnterKey(event) {
+            if (event.keyCode === 13) {
+                validateLoginData();
+            }
+        }
+
+        const hiddenShowPassword = (e, id) => {
+            let idQuery = "#" + id;
+            console.log($(idQuery).attr("type"));
+            if ($(idQuery).attr("type") == "text") {
+                $(idQuery).attr("type", "password");
+            } else {
+                $(idQuery).attr("type", "text");
+            }
+        };
+    </script> *@
+</body>
+</html>
+
+
