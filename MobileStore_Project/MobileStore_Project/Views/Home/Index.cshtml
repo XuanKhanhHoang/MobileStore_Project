@@ -11,7 +11,7 @@
 
 <h1 class="mb-3 fs-6 fw-bold">
     <i class="fa-solid fa-house"></i>
-    Trang chủ
+    Trang chủ @ViewBag.PageCount
 </h1>
 <div class="sort-product">
     <label for="">Lọc danh sách:</label>
@@ -79,12 +79,12 @@
                     <li>
                         <button id="sort_default" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Mặc định</button>
                     </li>
-                   @*  <li>
+                    <li>
                         <button class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm mới</button>
                     </li>
                     <li>
                         <button id="" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Sản phẩm cũ</button>
-                    </li> *@
+                    </li>
                     <li>
                         <button id="price_desc" class="product-dropdown-sort product-dropdown_btn bg-transparent border-0">Giá cao đến thấp</button>
                     </li>
@@ -276,10 +276,7 @@
         $(".page-item.next .page-link").click(function (event) {
             event.preventDefault();
             currPage++;
-            if (currPage < @pageCount) {
             getDataPage(currPage);
-
-            }
         })
 
         $("document").ready(() => {

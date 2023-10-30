@@ -3,12 +3,13 @@
 @foreach (var product in Model)
 {
     <div class="col">
-        <a asp-controller="Home" asp-action="ProductInformation" asp-route-productID="@product.MaSp" class="product h-100">
+        <a asp-controller="Home" asp-action="ProductInformation" class="product h-100">
             <div class="product_img" style="background-image: url(./img/@product.AnhSp);"></div>
             <div class="product-info">
                 <h6 class="product-info_name">@product.TenSp (512GB) - Chính hãng VN/A</h6>
                 @{
                     double price = (double)product.Giaban;
+
                 }
                 <span class="product-info_price">@price.ToString("N0") ₫</span>
                 @* <label class="product-info_label">Giá lên đời từ: <span>32,000,000</span></label> *@
