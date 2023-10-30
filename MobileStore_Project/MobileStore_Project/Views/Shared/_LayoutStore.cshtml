@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var email = ViewBag.Email;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,6 +43,21 @@
                     <div class="quantity px-1 position-absolute rounded fw-bold">0</div>
                 </div>
             </div>
+            <div class="header__login text-center fs-6 fw-bold ms-4">
+                @if (email != null)
+                {
+                    <a asp-action="Logout" asp-controller="Home" class="text-decoration-none text-dark">
+                        Đăng xuất
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="Login" asp-controller="Home" class="text-decoration-none text-dark">
+                        Đăng nhập
+                    </a>
+                }
+
+            </div>
         </div>
     </header>
 
@@ -77,29 +96,6 @@
         </div>
     </div>
 
-
-    <div class="container">
-        <ul class="list d-flex justify-content-center list-unstyled">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Iphone</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Samsung</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Xiaomi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Asus</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Realme</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Oppo</a>
-            </li>
-        </ul>
-    </div>
 
     <div class="container">
         <div class="slide-show">
