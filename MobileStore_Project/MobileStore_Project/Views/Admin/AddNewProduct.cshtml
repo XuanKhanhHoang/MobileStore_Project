@@ -216,10 +216,7 @@
            
             await f1();
            
-            if (document.getElementById("inpImg").files.length === 0) {
-                alert("Please select at least one file to upload.");
-                return false;
-            }
+            
             e.currentTarget.submit();
             return true;
         }

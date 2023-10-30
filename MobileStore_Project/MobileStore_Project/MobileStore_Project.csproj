@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Include="Views\Admin\AddNewProduct.cshtml" />
     <None Include="Views\Admin\Index.cshtml" />
+    <None Include="Views\Admin\List.cshtml" />
     <None Include="Views\Admin\_ViewStart.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />

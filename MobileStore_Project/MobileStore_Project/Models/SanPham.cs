@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace MobileStore_Project.Models
 {
@@ -15,8 +14,6 @@ namespace MobileStore_Project.Models
         public string MaNsx { get; set; } = null!;
         public int? SoLuong { get; set; }
         public string? TenSp { get; set; }
-
-        public decimal? Giaban { get; set; }
         public string? CauHinh { get; set; }
         public string? MoTa { get; set; }
         public string? PhienBan { get; set; }
