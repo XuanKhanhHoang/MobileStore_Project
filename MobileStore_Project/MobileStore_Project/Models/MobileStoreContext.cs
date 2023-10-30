@@ -27,7 +27,7 @@ namespace MobileStore_Project.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source= (local); Initial Catalog= MobileStore; Persist Security Info=True; User ID=sa; Password=123;");
+                optionsBuilder.UseSqlServer("Data Source=(local); Initial Catalog=MobileStore; Persist Security Info=True; User ID=sa; Password=123;");
             }
         }
 
@@ -71,10 +71,7 @@ namespace MobileStore_Project.Models
                     .HasColumnName("ID")
                     .IsFixedLength();
 
-                entity.Property(e => e.MaSp)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaSP")
-                    .IsFixedLength();
+                entity.Property(e => e.MaSp).HasColumnName("MaSP");
 
                 entity.Property(e => e.NgayTao).HasColumnType("datetime");
 
@@ -143,14 +140,11 @@ namespace MobileStore_Project.Models
 
                 entity.ToTable("SanPham");
 
-                entity.Property(e => e.MaSp)
-                    .HasMaxLength(10)
-                    .HasColumnName("MaSP")
-                    .IsFixedLength();
+                entity.Property(e => e.MaSp).HasColumnName("MaSP");
 
-                entity.Property(e => e.AnhSp)
-                    .HasMaxLength(255)
-                    .HasColumnName("AnhSP");
+                entity.Property(e => e.AnhSp).HasColumnName("AnhSP");
+
+                entity.Property(e => e.Giaban).HasColumnType("money");
 
                 entity.Property(e => e.MaNsx)
                     .HasMaxLength(10)
@@ -162,8 +156,6 @@ namespace MobileStore_Project.Models
                 entity.Property(e => e.PhienBan).HasMaxLength(50);
 
                 entity.Property(e => e.TenSp).HasColumnName("TenSP");
-
-                entity.Property(e => e.Giaban).HasColumnName("Giaban");
 
                 entity.HasOne(d => d.MaNsxNavigation)
                     .WithMany(p => p.SanPhams)

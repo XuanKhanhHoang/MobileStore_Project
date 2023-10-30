@@ -11,7 +11,7 @@ namespace MobileStore_Project.Models
             DonHangs = new HashSet<DonHang>();
         }
 
-        public string MaSp { get; set; } = null!;
+        public int MaSp { get; set; }
         public string MaNsx { get; set; } = null!;
         public int? SoLuong { get; set; }
         public string? TenSp { get; set; }
@@ -22,8 +22,8 @@ namespace MobileStore_Project.Models
         public string? PhienBan { get; set; }
         public int? KhuyenMai { get; set; }
         public string? MauSac { get; set; }
+        public decimal? Giaban { get; set; }
         public string? AnhSp { get; set; }
-        public decimal? GiaBan { get; set; }
 
         public virtual Nsx MaNsxNavigation { get; set; } = null!;
         public virtual ICollection<DonHang> DonHangs { get; set; }
